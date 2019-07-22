@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cone.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/22 18:18:29 by fshanaha          #+#    #+#             */
+/*   Updated: 2019/07/22 18:22:44 by fshanaha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/rt.h"
 
-t_vector3		find_n_cone(t_ray r, t_vector3 pt, double t, t_figure cone)
+t_vector3	find_n_cone(t_ray r, t_vector3 pt, double t, t_figure cone)
 {
 	t_vector3	n;
-	double	m;
+	double		m;
 
 	m = vec_dot(r.dir, cone.v) * t
 		+ vec_dot(vec_sub(r.pos, cone.pos), cone.v);
@@ -17,10 +29,10 @@ t_vector3		find_n_cone(t_ray r, t_vector3 pt, double t, t_figure cone)
 double		find_t_cone(t_ray *r, t_figure cone)
 {
 	t_vector3	x;
-	double	a;
-	double	b;
-	double	c;
-	double	d;
+	double		a;
+	double		b;
+	double		c;
+	double		d;
 
 	x = vec_sub(r->pos, cone.pos);
 	a = vec_dot(r->dir, cone.v);

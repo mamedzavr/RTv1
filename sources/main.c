@@ -1,6 +1,6 @@
 #include "../includes/rt.h"
 
-void			key(t_rt *rt)
+void		key(t_rt *rt)
 {
 	const Uint8	*key;
 
@@ -111,13 +111,11 @@ void		init(t_rt *rt)
 	rt->cam.pos = vec_new(0, 9, 20);
 	rt->cam.dir = vec_new(0, 0, 0);
 	rt->view.pos = vec_new(1, 1, 1);
-
-
 }
 
 int 		main(int ac, char **av)
 {
-	t_rt		rt;
+	t_rt	rt;
 
 	rt.run = 0;
 	rt.boolean = 0;

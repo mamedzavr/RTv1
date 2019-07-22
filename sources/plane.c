@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   plane.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/22 18:51:37 by fshanaha          #+#    #+#             */
+/*   Updated: 2019/07/22 18:51:38 by fshanaha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/rt.h"
 
 t_vector3		find_n_plane(t_ray r, t_figure plane)
@@ -7,11 +19,11 @@ t_vector3		find_n_plane(t_ray r, t_figure plane)
 	return (vec_scale(plane.v, -1));
 }
 
-double		find_t_plane(t_ray *r, t_figure plane)
+double			find_t_plane(t_ray *r, t_figure plane)
 {
-	double	t;
-	double	a;
-	double	b;
+	double		t;
+	double		a;
+	double		b;
 
 	a = vec_dot(vec_sub(r->pos, plane.pos), plane.v);
 	b = vec_dot(r->dir, plane.v);
@@ -21,9 +33,9 @@ double		find_t_plane(t_ray *r, t_figure plane)
 	return (t > 0.0003 ? t : -1);
 }
 
-double		calc_plane(t_rt *rt, t_ray r, int id)
+double			calc_plane(t_rt *rt, t_ray r, int id)
 {
-	double	t;
+	double		t;
 	t_figure	plane;
 
 	plane = rt->figure[id];

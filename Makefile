@@ -20,8 +20,6 @@ SDL2_P	= -rpath @loader_path/libSDL/
 
 DIR_S = sources
 
-DIR_P = parser
-
 DIR_O = objects
 
 HEADER = includes
@@ -43,8 +41,7 @@ SOURCES = main.c \
 			cylinder.c \
 			plane.c \
 			light.c \
-			# ../parser/init_parser.c \
-			# ../parser/parser.c \
+			figure.c \
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 

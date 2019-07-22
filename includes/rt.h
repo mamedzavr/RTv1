@@ -84,6 +84,8 @@ typedef struct		s_rt
 	t_figure		*figure;
 	t_vector3		p;
 	t_vector3		r;
+	t_vector3		l;
+	t_vector3		v;
 	t_vector3		n;
 	t_vector3		rv;
 	unsigned int	*color;
@@ -107,7 +109,7 @@ void				memory_error(void);
 
 
 t_color				trace_ray(t_rt *rt, t_ray r);
-void				compute_ray(t_rt *rt, t_vector3 n, t_ray r, double t);
+void				comp_ray(t_rt *rt, t_vector3 n, t_ray r, double t);
 void				find_closest_intersection(t_rt *rt, t_ray r);
 double				choose_closest_t(double a, double b, double d);
 int					find_closest_obj(t_rt *rt);
@@ -133,5 +135,8 @@ t_color				set_color(int r, int g, int b);
 
 double				compute_light(t_rt *rt, t_vector3 P, t_vector3 N);
 int					compute_shadow(t_rt *rt, t_ray ray, t_vector3 light_pos);
+double				compute_shine(t_rt *rt, t_vector3 n, int i, double intense);
+
+void				choose_figure(t_rt *rt, t_ray r);
 
 #endif

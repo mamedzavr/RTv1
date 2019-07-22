@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ray.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/22 18:51:45 by fshanaha          #+#    #+#             */
+/*   Updated: 2019/07/22 19:03:15 by fshanaha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/rt.h"
 
 double		choose_closest_t(double a, double b, double d)
@@ -16,9 +28,10 @@ double		choose_closest_t(double a, double b, double d)
 
 void		find_closest_intersection(t_rt *rt, t_ray r)
 {
-	int		i = -1;
-	rt->closest_obj = NULL;
+	int		i;
 
+	rt->closest_obj = NULL;
+	i = -1;
 	while (++i < rt->objcount)
 	{
 		if (ft_strcmp(rt->figure[i].type, "sphere") == 0)
@@ -47,7 +60,7 @@ int			find_closest_obj(t_rt *rt)
 	return (id);
 }
 
-void		compute_ray(t_rt *rt, t_vector3 n, t_ray r, double t)
+void		comp_ray(t_rt *rt, t_vector3 n, t_ray r, double t)
 {
 	if (rt->id == -1)
 		return ;
@@ -57,11 +70,10 @@ void		compute_ray(t_rt *rt, t_vector3 n, t_ray r, double t)
 
 t_color		trace_ray(t_rt *rt, t_ray r)
 {
-	int		i;
-	t_color	current_color;
-	t_vector3	pt;
-	double		huy;
-
+	int			i;
+	int			id;
+	t_color		current_color;
+	double		rgb;
 
 	i = -1;
 	rt->id = -1;
@@ -74,31 +86,11 @@ t_color		trace_ray(t_rt *rt, t_ray r)
 	}
 	rt->id = find_closest_obj(rt);
 	if (rt->id == -1)
-		return ((t_color){0,0,0});
-	if (ft_strcmp(rt->figure[rt->id].type, "sphere") == 0 && rt->t[rt->id] > 0)
-		compute_ray(rt, find_n_sphere(r, rt->t[rt->id], rt->figure[rt->id].pos), r, rt->t[rt->id]);
-	else if (ft_strcmp(rt->figure[rt->id].type, "cone") == 0)
-	{
-		pt = vec_add(r.pos, vec_scale(r.dir, rt->t[rt->id]));
-		if (rt->t[rt->id] > 0)
-		{
-			compute_ray(rt, find_n_cone(r, pt, rt->t[rt->id], rt->figure[rt->id]), r, rt->t[rt->id]);
-		}
-	}
-	else if (ft_strcmp(rt->figure[rt->id].type, "cylinder") == 0)
-	{
-		if (rt->t[rt->id] > 0)
-			compute_ray(rt, find_n_cylinder(r, rt->t[rt->id], rt->figure[rt->id]), r, rt->t[rt->id]);
-	}
-	else if (ft_strcmp(rt->figure[rt->id].type, "plane") == 0)
-	{
-		if (rt->t[rt->id] > 0)
-			compute_ray(rt, find_n_plane(r, rt->figure[rt->id]), r, rt->t[rt->id]);
-	}
-	int		id;
+		return ((t_color){0, 0, 0});
+	choose_figure(rt, r);
 	id = rt->id;
-	huy = compute_light(rt, rt->p, rt->n);
-	current_color = mult_color(rt->figure[id].color, huy);
+	rgb = compute_light(rt, rt->p, rt->n);
+	current_color = mult_color(rt->figure[id].color, rgb);
 	free(rt->t);
 	return (current_color);
 }

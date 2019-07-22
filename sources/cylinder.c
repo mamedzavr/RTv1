@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cylinder.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/22 18:18:33 by fshanaha          #+#    #+#             */
+/*   Updated: 2019/07/22 18:23:05 by fshanaha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/rt.h"
 
 t_vector3		find_n_cylinder(t_ray r, double t, t_figure cylinder)
 {
-	double	m;
+	double		m;
 	t_vector3	n;
 	t_vector3	p;
 
@@ -15,7 +27,7 @@ t_vector3		find_n_cylinder(t_ray r, double t, t_figure cylinder)
 	return (n);
 }
 
-double		find_t_cylinder(t_ray *r, t_figure cylinder)
+double			find_t_cylinder(t_ray *r, t_figure cylinder)
 {
 	t_vector3	x;
 	double		a;
@@ -35,7 +47,7 @@ double		find_t_cylinder(t_ray *r, t_figure cylinder)
 	return (d = d < 0.0003 ? -1 : choose_closest_t(a, b, d));
 }
 
-double		calc_cylinder(t_rt *rt, t_ray r, int id)
+double			calc_cylinder(t_rt *rt, t_ray r, int id)
 {
 	double		t;
 	t_figure	cylinder;

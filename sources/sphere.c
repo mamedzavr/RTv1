@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sphere.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/22 19:04:20 by fshanaha          #+#    #+#             */
+/*   Updated: 2019/07/22 19:04:22 by fshanaha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/rt.h"
 
 t_vector3		find_n_sphere(t_ray r, double d, t_vector3 cent)
@@ -13,10 +25,10 @@ t_vector3		find_n_sphere(t_ray r, double d, t_vector3 cent)
 
 double			find_t_sphere(t_ray *r, t_figure sphere)
 {
-	double	a;
-	double	b;
-	double	c;
-	double	d;
+	double		a;
+	double		b;
+	double		c;
+	double		d;
 
 	a = vec_dot(r->dir, r->dir);
 	b = 2 * vec_dot(r->dir, vec_sub(r->pos, sphere.pos));
