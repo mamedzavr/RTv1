@@ -1,0 +1,7 @@
+.vscode
+.DS_Store
+*.o
+a.out
+*.dSYM
+RTv1
+*.a
