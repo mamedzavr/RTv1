@@ -113,8 +113,10 @@ t_color		trace_ray(t_rt *rt, t_ray r)
 		if (rt->t[rt->id] > 0)
 			compute_ray(rt, find_n_plane(r, rt->figure[rt->id]), r, rt->t[rt->id]);
 	}
+	int		id;
+	id = rt->id;
 	huy = compute_light(rt, rt->p, rt->n);
-	current_color = mult_color(rt->figure[rt->id].color, compute_light(rt, rt->p, rt->n));
+	current_color = mult_color(rt->figure[id].color, huy);
 	free(rt->t);
 	return (current_color);
 }

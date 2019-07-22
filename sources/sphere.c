@@ -32,7 +32,6 @@ double			calc_sphere(t_rt *rt, t_ray r, int id)
 	double		t;
 	t_figure	sphere;
 
-	rt->col = 0;
 	sphere = rt->figure[id];
 	t = find_t_sphere(&r, sphere);
 	return (t);

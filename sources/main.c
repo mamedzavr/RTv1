@@ -105,7 +105,7 @@ void		init(t_rt *rt)
 	rt->light[1].pos = (t_vector3){-3, 2, 5};
 
 	rt->light[2].type = "point";
-	rt->light[2].intense = 0.6;
+	rt->light[2].intense = 0.0;
 	rt->light[2].pos = (t_vector3){3, 2, 5};
 
 	rt->cam.pos = vec_new(0, 0, 5);

@@ -83,23 +83,18 @@ typedef struct		s_rt
 	t_light			*light;
 	t_figure		*figure;
 	t_vector3		p;
-	t_vector3		l;
 	t_vector3		r;
 	t_vector3		n;
+	t_vector3		rv;
 	unsigned int	*color;
 	int				boolean;
 	int				run;
 	double			*t;
-	double			t_max;
 	int				id;
 	int				figure_count;
-	double			closest_t;
 	t_figure		*closest_obj;
-	t_color			pixel_color;
 	int				objcount;
 	int				lightcount;
-	t_vector3		rv;
-	double			col;
 }					t_rt;
 
 int 				main(int ac, char **av);
@@ -108,7 +103,6 @@ void				init_sdl(t_rt *rt);
 void				key(t_rt *rt);
 void				update_screen(t_rt *rt);
 void				canvas_to_viewport(t_rt *rt, int x, int y);
-
 void				memory_error(void);
 
 
@@ -138,5 +132,6 @@ t_color				mult_color(t_color color, double i);
 t_color				set_color(int r, int g, int b);
 
 double				compute_light(t_rt *rt, t_vector3 P, t_vector3 N);
+int					compute_shadow(t_rt *rt, t_ray ray, t_vector3 light_pos);
 
 #endif
