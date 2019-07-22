@@ -31,14 +31,13 @@ double		find_t_cone(t_ray *r, t_figure cone)
 	c = vec_dot(x, x) - (1 + cone.angle * cone.angle) * c * c;
 	d = b * b - 4 * a * c;
 	d = DROUND(d);
-	return (d = d < 0 ? -1 : choose_closest_t(a, b, d));
+	return (d = d < 0.0003 ? -1 : choose_closest_t(a, b, d));
 }
 
 double		calc_cone(t_rt *rt, t_ray r, int id)
 {
-	double	t;
+	double		t;
 	t_figure	cone;
-	t_vector3	pt;
 
 	cone = rt->figure[id];
 	t = find_t_cone(&r, cone);

@@ -87,35 +87,33 @@ void		init(t_rt *rt)
 	rt->figure[5].color = set_color(50, 50, 50);
 	rt->figure[5].spec = 50;
 	rt->figure[5].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[5].dir);
-	rt->figure[5].radius = 0.8;
+	rt->figure[5].radius = 0;
 
 
 	rt->figure[4].type = "sphere";
 	rt->figure[4].pos = vec_new(0, 1, -1);
 	rt->figure[4].radius = 0;
-	rt->figure[4].color = set_color(0, 30, 50);
+	rt->figure[4].color = set_color(0, 288, 50);
 	rt->figure[4].spec = 50;
 
 
 	rt->light[0].type = "ambient";
-	rt->light[0].intense = 0.3;
+	rt->light[0].intense = 0.2;
 
 	rt->light[1].type = "point";
-	rt->light[1].intense = 0.6;
+	rt->light[1].intense = 0.3;
 	rt->light[1].pos = (t_vector3){-3, 2, 5};
 
 	rt->light[2].type = "point";
-	rt->light[2].intense = 0.0;
+	rt->light[2].intense = 0.8;
 	rt->light[2].pos = (t_vector3){3, 2, 5};
 
-	rt->cam.pos = vec_new(0, 0, 5);
+	rt->cam.pos = vec_new(0, 9, 20);
 	rt->cam.dir = vec_new(0, 0, 0);
 	rt->view.pos = vec_new(1, 1, 1);
 
 
 }
-
-
 
 int 		main(int ac, char **av)
 {

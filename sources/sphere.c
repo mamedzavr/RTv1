@@ -24,7 +24,7 @@ double			find_t_sphere(t_ray *r, t_figure sphere)
 		vec_sub(r->pos, sphere.pos)) - sphere.radius * sphere.radius;
 	d = b * b - 4 * a * c;
 	d = DROUND(d);
-	return (d < 0 ? -1 : choose_closest_t(a, b, d));
+	return (d < 0.0003 ? -1 : choose_closest_t(a, b, d));
 }
 
 double			calc_sphere(t_rt *rt, t_ray r, int id)

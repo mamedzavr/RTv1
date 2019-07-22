@@ -30,12 +30,14 @@ void	update_screen(t_rt *rt)
 			rt->cam.dir = vec_norm((t_vector3){x, y, -1});
 			ray.dir = rt->cam.dir;
 			buff = trace_ray(rt, ray);
-			if (buff.g > 255)
-				buff.g = 255;
-			if (buff.r > 255)
-				buff.r = 255;
-			if (buff.b > 255)
-				buff.b = 255;
+			(buff.r > 255) ? buff.r = 255 : 0;
+			(buff.g > 255) ? buff.g = 255 : 0;
+			(buff.b > 255) ? buff.b = 255 : 0;
+			// if (buff.r > 255)
+			// if (buff.r > 255)
+			// 	buff.r = 255;
+			// if (buff.b > 255)
+			// 	buff.b = 255;
 			rt->color[i + j * WINW] = (buff.r << 16) + (buff.g << 8) + (buff.b);
 			i++;
 		}

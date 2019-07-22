@@ -18,7 +18,7 @@ double		find_t_plane(t_ray *r, t_figure plane)
 	if (b == 0 || (a < 0 && b < 0) || (a > 0 && b > 0))
 		return (-1);
 	t = -a / b;
-	return (t > 0 ? t : -1);
+	return (t > 0.0003 ? t : -1);
 }
 
 double		calc_plane(t_rt *rt, t_ray r, int id)

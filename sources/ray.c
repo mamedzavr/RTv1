@@ -7,9 +7,9 @@ double		choose_closest_t(double a, double b, double d)
 
 	t1 = (-b - sqrt(d)) / (2 * a);
 	t2 = (-b + sqrt(d)) / (2 * a);
-	if ((t1 <= t2 && t1 >= 0) || (t1 >= 0 && t2 < 0))
+	if ((t1 <= t2 && t1 >= 0.0003) || (t1 >= 0.0003 && t2 < 0.0003))
 		return (t1);
-	if ((t2 <= t1 && t2 >= 0) || (t2 >= 0 && t1 < 0))
+	if ((t2 <= t1 && t2 >= 0.0003) || (t2 >= 0.0003 && t1 < 0.0003))
 		return (t2);
 	return (-1);
 }
@@ -22,25 +22,13 @@ void		find_closest_intersection(t_rt *rt, t_ray r)
 	while (++i < rt->objcount)
 	{
 		if (ft_strcmp(rt->figure[i].type, "sphere") == 0)
-		{
 			rt->t[i] = calc_sphere(rt, r, i);
-			rt->closest_obj = &rt->figure[i];
-		}
 		else if (ft_strcmp(rt->figure[i].type, "cone") == 0)
-		{
 			rt->t[i] = calc_cone(rt, r, i);
-			rt->closest_obj = &rt->figure[i];
-		}
 		else if (ft_strcmp(rt->figure[i].type, "cylinder") == 0)
-		{
 			rt->t[i] = calc_cylinder(rt, r, i);
-			rt->closest_obj = &rt->figure[i];
-		}
 		else if (ft_strcmp(rt->figure[i].type, "plane") == 0)
-		{
 			rt->t[i] = calc_plane(rt, r, i);
-			rt->closest_obj = &rt->figure[i];
-		}
 	}
 }
 
@@ -65,7 +53,6 @@ void		compute_ray(t_rt *rt, t_vector3 n, t_ray r, double t)
 		return ;
 	rt->n = vec_cpy(n);
 	rt->p = vec_add(r.pos, vec_scale(r.dir, t));
-	rt->rv = vec_sub(r.dir, vec_scale(rt->n, 2.0 * vec_dot(r.dir, rt->n)));
 }
 
 t_color		trace_ray(t_rt *rt, t_ray r)
@@ -87,14 +74,9 @@ t_color		trace_ray(t_rt *rt, t_ray r)
 	}
 	rt->id = find_closest_obj(rt);
 	if (rt->id == -1)
-	{
 		return ((t_color){0,0,0});
-	}
-	if (ft_strcmp(rt->figure[rt->id].type, "sphere") == 0)
-	{
-		if (rt->t[rt->id] > 0)
-			compute_ray(rt, find_n_sphere(r, rt->t[rt->id], rt->figure[rt->id].pos), r, rt->t[rt->id]);
-	}
+	if (ft_strcmp(rt->figure[rt->id].type, "sphere") == 0 && rt->t[rt->id] > 0)
+		compute_ray(rt, find_n_sphere(r, rt->t[rt->id], rt->figure[rt->id].pos), r, rt->t[rt->id]);
 	else if (ft_strcmp(rt->figure[rt->id].type, "cone") == 0)
 	{
 		pt = vec_add(r.pos, vec_scale(r.dir, rt->t[rt->id]));

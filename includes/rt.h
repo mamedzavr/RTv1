@@ -9,8 +9,8 @@
 
 // # define WINW 200
 // # define WINH 200
-# define WINW 800
-# define WINH 600
+# define WINW 1000
+# define WINH 1000
 # define HALF_WINW WINW / 2
 # define HALF_WINH WINH / 2
 # define VIEW_W 1
