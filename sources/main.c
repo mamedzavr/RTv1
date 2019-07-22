@@ -38,79 +38,194 @@ void		init_sdl(t_rt *rt)
 		SDL_TEXTUREACCESS_TARGET, WINW, WINH);
 }
 
-void		init(t_rt *rt)
-{
-	rt->objcount = 6;
-	rt->lightcount = 3;
+// void		init(t_rt *rt)
+// {
+// 	rt->objcount = 6;
+// 	rt->lightcount = 3;
 
-	if (!(rt->color = (unsigned int *)malloc(sizeof(unsigned int) * WINH * WINW)))
-		memory_error();
+// 	if (!(rt->color = (unsigned int *)malloc(sizeof(unsigned int) * WINH * WINW)))
+// 		memory_error();
+// 	if (!(rt->figure = (t_figure *)malloc(sizeof(t_figure) * rt->objcount)))
+// 		memory_error();
+// 	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
+// 		memory_error();
+
+// 	rt->figure[0].type = "sphere";
+// 	rt->figure[0].pos = vec_new(-3, 1, -3);
+// 	rt->figure[0].radius = 2;
+// 	rt->figure[0].color = set_color(0, 150, 0);
+// 	rt->figure[0].spec = 50;
+
+// 	rt->figure[1].type = "plane";
+// 	rt->figure[1].pos = vec_new(0, -1, 0);
+// 	rt->figure[1].dir = vec_new(0, 1, 0);
+// 	rt->figure[1].radius = 5000;
+// 	rt->figure[1].color = set_color(150, 150, 0);
+// 	rt->figure[1].spec = 50;
+// 	rt->figure[1].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[1].dir);
+
+// 	rt->figure[2].type = "sphere";
+// 	rt->figure[2].pos = vec_new(3, 1, -3);
+// 	rt->figure[2].radius = 2;
+// 	rt->figure[2].color = set_color(0, 0, 150);
+// 	rt->figure[2].spec = 50;
+
+// 	rt->figure[3].type = "cone";
+// 	// rt->figure[3].type = "cylinder";
+// 	rt->figure[3].pos = vec_new(0, 1, 0);
+// 	rt->figure[3].dir =  vec_new(0, -1, 0);
+// 	rt->figure[3].angle = 0.5;
+// 	rt->figure[3].color = set_color(100, 50, 150);
+// 	rt->figure[3].spec = 50;
+// 	rt->figure[3].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[3].dir);
+// 	rt->figure[3].radius = tan(RAD(0.8));
+
+// 	rt->figure[5].type = "cylinder";
+// 	rt->figure[5].pos = vec_new(0, 1, 0);
+// 	rt->figure[5].dir =  vec_new(0, -1, 30);
+// 	rt->figure[5].angle = 0.5;
+// 	rt->figure[5].color = set_color(50, 50, 50);
+// 	rt->figure[5].spec = 50;
+// 	rt->figure[5].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[5].dir);
+// 	rt->figure[5].radius = 0;
+
+
+// 	rt->figure[4].type = "sphere";
+// 	rt->figure[4].pos = vec_new(0, 1, -1);
+// 	rt->figure[4].radius = 0;
+// 	rt->figure[4].color = set_color(0, 288, 50);
+// 	rt->figure[4].spec = 50;
+
+
+// 	rt->light[0].type = "ambient";
+// 	rt->light[0].intense = 0.2;
+
+// 	rt->light[1].type = "point";
+// 	rt->light[1].intense = 0.3;
+// 	rt->light[1].pos = (t_vector3){-3, 2, 5};
+
+// 	rt->light[2].type = "point";
+// 	rt->light[2].intense = 0.8;
+// 	rt->light[2].pos = (t_vector3){3, 2, 5};
+
+// 	rt->cam.pos = vec_new(0, 9, 20);
+// 	rt->cam.dir = vec_new(0, 0, 0);
+// 	rt->view.pos = vec_new(1, 1, 1);
+
+	// rt->light[0].type = "point";
+	// rt->light[0].intense = 0.3;
+	// rt->light[0].pos = (t_vector3){-3, 2, 5};
+// }
+
+void		init_scene_1(t_rt *rt)
+{
+	rt->objcount = 1;
+	rt->lightcount = 2;
+
 	if (!(rt->figure = (t_figure *)malloc(sizeof(t_figure) * rt->objcount)))
 		memory_error();
 	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
 		memory_error();
 
+	rt->cam.pos = vec_new(0, 0, 10);
+	rt->cam.dir = vec_new(0, 0, 1);
+	rt->view.pos = vec_new(1, 1, 1);
+
 	rt->figure[0].type = "sphere";
-	rt->figure[0].pos = vec_new(-3, 1, -3);
-	rt->figure[0].radius = 2;
-	rt->figure[0].color = set_color(0, 150, 0);
+	rt->figure[0].pos = vec_new(0, 0, 0);
+	rt->figure[0].dir = vec_new(0, 0, 0);
+	rt->figure[0].radius = 3;
+	rt->figure[0].color = set_color(160, 0, 0);
 	rt->figure[0].spec = 50;
 
-	rt->figure[1].type = "plane";
-	rt->figure[1].pos = vec_new(0, -1, 0);
-	rt->figure[1].dir = vec_new(0, 1, 0);
-	rt->figure[1].radius = 5000;
-	rt->figure[1].color = set_color(150, 150, 0);
-	rt->figure[1].spec = 50;
-	rt->figure[1].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[1].dir);
+	rt->light[0].type = "ambient";
+	rt->light[0].intense = 0.0;
 
-	rt->figure[2].type = "sphere";
-	rt->figure[2].pos = vec_new(3, 1, -3);
-	rt->figure[2].radius = 2;
-	rt->figure[2].color = set_color(0, 0, 150);
-	rt->figure[2].spec = 50;
+	rt->light[1].type = "point";
+	rt->light[1].intense = 0.65;
+	rt->light[1].pos = (t_vector3){2, 0.5, 5};
+}
 
-	rt->figure[3].type = "cone";
-	// rt->figure[3].type = "cylinder";
-	rt->figure[3].pos = vec_new(0, 1, 0);
-	rt->figure[3].dir =  vec_new(0, -1, 0);
-	rt->figure[3].angle = 0.5;
-	rt->figure[3].color = set_color(100, 50, 150);
-	rt->figure[3].spec = 50;
-	rt->figure[3].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[3].dir);
-	rt->figure[3].radius = tan(RAD(0.8));
+void		init_scene_2(t_rt *rt)
+{
+	rt->objcount = 1;
+	rt->lightcount = 2;
 
-	rt->figure[5].type = "cylinder";
-	rt->figure[5].pos = vec_new(0, 1, 0);
-	rt->figure[5].dir =  vec_new(0, -1, 30);
-	rt->figure[5].angle = 0.5;
-	rt->figure[5].color = set_color(50, 50, 50);
-	rt->figure[5].spec = 50;
-	rt->figure[5].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[5].dir);
-	rt->figure[5].radius = 0;
+	if (!(rt->figure = (t_figure *)malloc(sizeof(t_figure) * rt->objcount)))
+		memory_error();
+	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
+		memory_error();
 
+	rt->cam.pos = vec_new(0, 0, 10);
+	rt->cam.dir = vec_new(0, 0, 1);
+	rt->view.pos = vec_new(1, 1, 1);
 
-	rt->figure[4].type = "sphere";
-	rt->figure[4].pos = vec_new(0, 1, -1);
-	rt->figure[4].radius = 0;
-	rt->figure[4].color = set_color(0, 288, 50);
-	rt->figure[4].spec = 50;
-
+	rt->figure[0].type = "cylinder";
+	rt->figure[0].pos = vec_new(0, 1, 0);
+	rt->figure[0].dir =  vec_new(0, -1, 0);
+	rt->figure[0].angle = 0.5;
+	rt->figure[0].color = set_color(15, 100, 0);
+	rt->figure[0].spec = -1;
+	rt->figure[0].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[0].dir);
+	rt->figure[0].radius = 2;
 
 	rt->light[0].type = "ambient";
 	rt->light[0].intense = 0.2;
 
 	rt->light[1].type = "point";
-	rt->light[1].intense = 0.3;
-	rt->light[1].pos = (t_vector3){-3, 2, 5};
+	rt->light[1].intense = 0.5;
+	rt->light[1].pos = (t_vector3){20, 0.5, 20};
+}
 
-	rt->light[2].type = "point";
-	rt->light[2].intense = 0.8;
-	rt->light[2].pos = (t_vector3){3, 2, 5};
+void		init_scene_3(t_rt *rt)
+{
+	rt->objcount = 2;
+	rt->lightcount = 2;
 
-	rt->cam.pos = vec_new(0, 9, 20);
-	rt->cam.dir = vec_new(0, 0, 0);
+	if (!(rt->figure = (t_figure *)malloc(sizeof(t_figure) * rt->objcount)))
+		memory_error();
+	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
+		memory_error();
+
+	rt->cam.pos = vec_new(0, 0, 10);
+	rt->cam.dir = vec_new(0, 0, 1);
 	rt->view.pos = vec_new(1, 1, 1);
+
+	rt->figure[0].type = "cone";
+	rt->figure[0].pos = vec_new(0, 1, 0);
+	rt->figure[0].dir =  vec_new(0, -1, 0);
+	rt->figure[0].angle = 0.5;
+	rt->figure[0].color = set_color(15, 100, 0);
+	rt->figure[0].spec = 30;
+	rt->figure[0].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[0].dir);
+	rt->figure[0].radius = 2;
+
+	rt->figure[1].type = "plane";
+	rt->figure[1].pos = vec_new(0, -1, 0);
+	rt->figure[1].dir = vec_new(0, 1, 0);
+	rt->figure[1].radius = 5000;
+	rt->figure[1].color = set_color(10, 15, 110);
+	rt->figure[1].spec = 50;
+	rt->figure[1].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[1].dir);
+
+	rt->light[0].type = "ambient";
+	rt->light[0].intense = 0.2;
+
+	rt->light[1].type = "point";
+	rt->light[1].intense = 6;
+	rt->light[1].pos = (t_vector3){1, 4, 5};
+}
+
+void		parse_number(t_rt *rt, char c)
+{
+	if (!(rt->color = (unsigned int *)malloc(sizeof(unsigned int) * WINH * WINW)))
+		memory_error();
+	if (c == '1')
+		init_scene_1(rt);
+	if (c == '2')
+		init_scene_2(rt);
+	if (c == '3')
+		init_scene_3(rt);
 }
 
 int 		main(int ac, char **av)
@@ -121,7 +236,8 @@ int 		main(int ac, char **av)
 	rt.boolean = 0;
 	if (ac == 2 && (av[1][0] == '1' || av[1][0] == '2' || av[1][0] == '3' || av[1][0] == '4'))
 	{
-		init(&rt);
+		parse_number(&rt, av[1][0]);
+		// init(&rt);
 		init_sdl(&rt);
 		while (!rt.boolean)
 		{
