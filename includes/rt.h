@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+// /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   rt.h                                               :+:      :+:    :+:   */
@@ -27,11 +27,12 @@
 # define HALF_WINH WINH / 2
 # define VIEW_W 1
 # define VIEW_H 1
-# define FOV (60 * (M_PI / 180))
+# define FOV (65 * (M_PI / 180))
 # define RAD(x) (x * (M_PI / 180))
 # define MAX(x, y) ((x < y) ? y : x;)
 # define ABS(x) (x) > 0 ? (x) : -(x)
 # define DROUND(d) ABS(d) < 0.00001 ? 0 : (d)
+# define PPD 995
 
 typedef struct		s_sdl
 {
@@ -69,6 +70,8 @@ typedef	struct		s_cam
 	t_vector3		pos;
 	t_vector3		dir;
 	t_vector3		rot;
+	t_vector3		updir;
+	t_vector3		ldir;
 }					t_cam;
 
 typedef	struct		s_view
@@ -156,8 +159,6 @@ void				init_scene_3(t_rt *rt);
 void				init_scene_4(t_rt *rt);
 void				init_scene_5(t_rt *rt);
 void				init_scene_6(t_rt *rt);
-void				init_scene_7(t_rt *rt);
-
-
+// void				init_scene_7(t_rt *rt);
 
 #endif

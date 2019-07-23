@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 19:04:52 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/23 13:41:52 by fshanaha         ###   ########.fr       */
+/*   Updated: 2019/07/23 15:24:07 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
+
+void			canvas_to_viewport(t_rt *rt, int x, int y)
+{
+	rt->cam.rot.x = x * rt->view.pos.x / WINW;
+	rt->cam.rot.y = y * rt->view.pos.y / WINH;
+	rt->cam.rot.z = rt->cam.pos.z;
+}
 
 static void		sdl_run(t_rt *rt)
 {
@@ -35,24 +42,35 @@ static void		color(t_rt *rt, t_ray ray, int *i)
 
 void			update_screen(t_rt *rt)
 {
-	float		x;
-	float		y;
+	// float		x;
+	// float		y;
 	int			i[2];
 	t_ray		ray;
+	t_vector3	ppc;
 
 	i[1] = -1;
 	if (!(rt->t = (double*)malloc(sizeof(double) * rt->objcount)))
 		memory_error();
+	ppc = vec_add(rt->cam.pos, vec_scale(rt->cam.dir, PPD));
 	ray.pos = rt->cam.pos;
 	while (++i[1] < WINH)
 	{
 		i[0] = -1;
 		while (++i[0] < WINW)
 		{
-			x = ((2 * (i[0] + 0.5) / WINW - 1) * tan(FOV / 2.) * WINW / WINH) + rt->cam.rot.x;
-			y = -(2 * (i[1] + 0.5) / WINH - 1) * tan(FOV / 2.) + rt->cam.rot.y;
-			rt->cam.dir = vec_norm((t_vector3){x, y, -1});
-			ray.dir =  rt->cam.dir;
+			// x = ((2 * (i[0] + 0.5) / WINW - 1) * tan(FOV / 2.) * WINW / WINH) + rt->cam.rot.x;
+			// y = -(2 * (i[1] + 0.5) / WINH - 1) * tan(FOV / 2.) + rt->cam.rot.y;
+			rt->cam.dir = vec_new(0, 0, -1);
+			rt->cam.dir = vec_rot_xyz(rt->cam.dir, rt->cam.rot);
+			rt->cam.updir = vec_new(0, -1, 0);
+			rt->cam.updir = vec_rot_xyz(rt->cam.updir, rt->cam.rot);
+			rt->cam.ldir = vec_norm(vec_cross(rt->cam.dir, rt->cam.updir));
+			ray.dir = vec_sub(ppc, vec_scale(rt->cam.ldir, (i[0] - WINH)));
+			ray.dir = vec_add(ray.dir, vec_scale(rt->cam.updir, (i[1] - WINH)));
+			ray.dir = vec_norm(vec_sub(ray.dir, ray.pos));
+			// canvas_to_viewport(rt, x, y);
+			// rt->cam.dir = vec_norm((t_vector3){x, y, -1});
+			// ray.dir =  rt->cam.dir;
 			color(rt, ray, i);
 		}
 	}
