@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:58:28 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 11:59:07 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 12:09:56 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,10 @@ double				compute_shine(t_rt *rt, t_vector3 n, int i, double intense);
 void				init_scene_1(t_rt *rt);
 void				init_scene_2(t_rt *rt);
 void				init_scene_3(t_rt *rt);
+void				init_scene_4(t_rt *rt);
+void				init_scene_5(t_rt *rt);
+void				init_scene_6(t_rt *rt);
+void				init_scene_7(t_rt *rt);
 
 
 

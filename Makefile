@@ -2,7 +2,7 @@ CC = clang
 
 NAME = RTv1
 
-FLAGS = -Wall -Wextra -g #-Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 IDIR = ./includes
 
