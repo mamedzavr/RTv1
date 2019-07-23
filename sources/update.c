@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 19:04:52 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/23 16:24:50 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 17:53:18 by fshanaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void			update_screen(t_rt *rt)
 			// rt->cam.updir = vec_new(0, -1, 0);
 			// rt->cam.updir = vec_rot_xyz(rt->cam.updir, rt->cam.rot);
 			// rt->cam.ldir = vec_norm(vec_cross(rt->cam.dir, rt->cam.updir));
-			ray.dir = vec_sub(ppc, vec_scale(rt->cam.ldir, (i[0] - WINH)));
-			ray.dir = vec_add(ray.dir, vec_scale(rt->cam.updir, (i[1] - WINH)));
+			ray.dir = vec_sub(ppc, vec_scale(rt->cam.ldir, (i[0] - WINW_H)));
+			ray.dir = vec_add(ray.dir, vec_scale(rt->cam.updir, (i[1] - WINH_H)));
 			ray.dir = vec_norm(vec_sub(ray.dir, ray.pos));
 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:59:34 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 16:08:25 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 17:37:42 by fshanaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void		key(t_rt *rt)
 	// 	rt->cam.rot.z -= 0.2;
 	// if (key[SDL_SCANCODE_D] && rt->run-- > 0)
 	// 	rt->cam.rot.z += 0.2;
-	printf("\ncam.pos.x=%f\ncam.pos.y=%f\ncam.pos.z=%f\ncam.rot.x=%f\ncam.rot.y=%f|\n", rt->cam.pos.x, rt->cam.pos.y, rt->cam.pos.z, rt->cam.rot.x, rt->cam.rot.y);
+	// printf("\ncam.pos.x=%f\ncam.pos.y=%f\ncam.pos.z=%f\ncam.rot.x=%f\ncam.rot.y=%f|\n", rt->cam.pos.x, rt->cam.pos.y, rt->cam.pos.z, rt->cam.rot.x, rt->cam.rot.y);
 }
 
 void		init_sdl(t_rt *rt)
@@ -157,7 +157,7 @@ void		parse_number(t_rt *rt, char c)
 	(c == '4') ? init_scene_4(rt) : 0;
 	(c == '5') ? init_scene_5(rt) : 0;
 	(c == '6') ? init_scene_6(rt) : 0;
-	// (c == '7') ? init_scene_7(rt) : 0;
+	(c == '7') ? init_scene_7(rt) : 0;
 }
 
 int 		main(int ac, char **av)

@@ -23,6 +23,8 @@
 // # define WINH 200
 # define WINW 1000
 # define WINH 1000
+# define WINW_H WINW / 2
+# define WINH_H WINH / 2
 # define FOV (65 * (M_PI / 180))
 # define RAD(x) (x * (M_PI / 180))
 # define ABS(x) (x) > 0 ? (x) : -(x)
@@ -148,6 +150,8 @@ void				init_scene_3(t_rt *rt);
 void				init_scene_4(t_rt *rt);
 void				init_scene_5(t_rt *rt);
 void				init_scene_6(t_rt *rt);
-// void				init_scene_7(t_rt *rt);
+void				init_scene_7(t_rt *rt);
 
+void				cylinder_7_2(t_rt *rt);
+void				cylinder_7(t_rt *rt);
 #endif
