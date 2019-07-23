@@ -42,6 +42,7 @@ SOURCES = main.c \
 			plane.c \
 			light.c \
 			figure.c \
+			scene.c \
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 

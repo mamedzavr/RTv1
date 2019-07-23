@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rt.h                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/23 11:58:28 by wqarro-v          #+#    #+#             */
+/*   Updated: 2019/07/23 11:59:07 by wqarro-v         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_RTV1_H
 # define FT_RTV1_H
 
@@ -113,6 +125,7 @@ void				comp_ray(t_rt *rt, t_vector3 n, t_ray r, double t);
 void				find_closest_intersection(t_rt *rt, t_ray r);
 double				choose_closest_t(double a, double b, double d);
 int					find_closest_obj(t_rt *rt);
+void				choose_figure(t_rt *rt, t_ray r);
 
 t_vector3			find_n_cone(t_ray r, t_vector3 pt, double t, t_figure cone);
 double				fint_t_cone(t_ray *r, t_figure cone);
@@ -137,6 +150,10 @@ double				compute_light(t_rt *rt, t_vector3 P, t_vector3 N);
 int					compute_shadow(t_rt *rt, t_ray ray, t_vector3 light_pos);
 double				compute_shine(t_rt *rt, t_vector3 n, int i, double intense);
 
-void				choose_figure(t_rt *rt, t_ray r);
+void				init_scene_1(t_rt *rt);
+void				init_scene_2(t_rt *rt);
+void				init_scene_3(t_rt *rt);
+
+
 
 #endif
