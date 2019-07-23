@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:59:34 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 13:41:21 by fshanaha         ###   ########.fr       */
+/*   Updated: 2019/07/23 14:35:04 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void		key(t_rt *rt)
 		rt->cam.rot.z += 0.1;
 	if (key[SDL_SCANCODE_D] && rt->run-- > 0)
 		rt->cam.rot.z -= 0.1;
+	printf("|cam.rot.x=%f\ncam.rot.y=%f\ncam.rot.z=%f\ncam.pos.x=%f\ncam.pos.y=%f\ncam.pos.z=%f|\n", rt->cam.rot.x, rt->cam.rot.y, rt->cam.rot.z, rt->cam.pos.x, rt->cam.pos.y, rt->cam.pos.z);
 }
 
 void		init_sdl(t_rt *rt)
