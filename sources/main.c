@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:59:34 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 11:59:37 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 12:52:27 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,18 @@ void		key(t_rt *rt)
 		rt->cam.pos.z += 0.1;
 	if (key[SDL_SCANCODE_S] && rt->run-- > 0)
 		rt->cam.pos.z -= 0.1;
+	if (key[SDL_SCANCODE_KP_8] && rt->run-- > 0)
+		rt->cam.dir.y += 0.1;
+	if (key[SDL_SCANCODE_KP_5] && rt->run-- > 0)
+		rt->cam.dir.y -= 0.1;
+	if (key[SDL_SCANCODE_KP_4] && rt->run-- > 0)
+		rt->cam.dir.x -= 0.1;
+	if (key[SDL_SCANCODE_KP_6] && rt->run-- > 0)
+		rt->cam.dir.x += 0.1;
+	if (key[SDL_SCANCODE_E] && rt->run-- > 0)
+		rt->cam.dir.z += 0.1;
+	if (key[SDL_SCANCODE_D] && rt->run-- > 0)
+		rt->cam.dir.z -= 0.1;
 }
 
 void		init_sdl(t_rt *rt)
@@ -135,12 +147,13 @@ void		parse_number(t_rt *rt, char c)
 {
 	if (!(rt->color = (unsigned int *)malloc(sizeof(unsigned int) * WINH * WINW)))
 		memory_error();
-	if (c == '1')
-		init_scene_1(rt);
-	if (c == '2')
-		init_scene_2(rt);
-	if (c == '3')
-		init_scene_3(rt);
+	(c == '1') ? init_scene_1(rt) : 0;
+	(c == '2') ? init_scene_2(rt) : 0;
+	(c == '3') ? init_scene_3(rt) : 0;
+	(c == '4') ? init_scene_4(rt) : 0;
+	(c == '5') ? init_scene_5(rt) : 0;
+	(c == '6') ? init_scene_6(rt) : 0;
+	(c == '7') ? init_scene_7(rt) : 0;
 }
 
 int 		main(int ac, char **av)
@@ -149,7 +162,8 @@ int 		main(int ac, char **av)
 
 	rt.run = 0;
 	rt.boolean = 0;
-	if (ac == 2 && (av[1][0] == '1' || av[1][0] == '2' || av[1][0] == '3' || av[1][0] == '4'))
+	if (ac == 2 && (av[1][0] == '1' || av[1][0] == '2' || av[1][0] == '3' || av[1][0] == '4' ||
+		av[1][0] == '5' || av[1][0] == '6' || av[1][0] == '7'))
 	{
 		parse_number(&rt, av[1][0]);
 		init_sdl(&rt);
@@ -164,6 +178,6 @@ int 		main(int ac, char **av)
 		}
 	}
 	else
-		ft_putendl("usage:\n./RTv1 1 || ./RTv1 2 || ./RTv1 3 || ./RTv1 4");
+		ft_putendl("usage:\n./RTv1 1 || 2 || 3 || 4 || 5 || 6 || 7");
 	return (0);
 }

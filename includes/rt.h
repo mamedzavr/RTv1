@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:58:28 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 12:09:56 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 13:04:16 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 # include <OpenCL/opencl.h>
 # include "../libvec/libvec.h"
 
-// # define WINW 200
-// # define WINH 200
-# define WINW 1000
-# define WINH 1000
+# define WINW 200
+# define WINH 200
+// # define WINW 1000
+// # define WINH 1000
 # define HALF_WINW WINW / 2
 # define HALF_WINH WINH / 2
 # define VIEW_W 1
@@ -68,6 +68,9 @@ typedef	struct		s_cam
 {
 	t_vector3		pos;
 	t_vector3		dir;
+	t_vector3		updir;
+	t_vector3		lowdir;
+	t_vector3		rot;
 }					t_cam;
 
 typedef	struct		s_view

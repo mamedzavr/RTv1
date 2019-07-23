@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 19:04:52 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/22 19:18:18 by fshanaha         ###   ########.fr       */
+/*   Updated: 2019/07/23 13:16:37 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,12 @@ void			update_screen(t_rt *rt)
 		i[0] = -1;
 		while (++i[0] < WINW)
 		{
-			x = (2 * (i[0] + 0.5) / WINW - 1) * tan(FOV / 2.) * WINW / WINH;
-			y = -(2 * (i[1] + 0.5) / WINH - 1) * tan(FOV / 2.);
+			x = (2 * (i[0] + 0.5) / WINW - 1) * tan(FOV / 2.0) * WINW / WINH;
+			y = -(2 * (i[1] + 0.5) / WINH - 1) * tan(FOV / 2.0);
 			rt->cam.dir = vec_norm((t_vector3){x, y, -1});
-			ray.dir = rt->cam.dir;
+			// canvas_to_viewport(rt, i[0], i[1]);
+			ray.dir =  rt->cam.dir;
+			// ray.dir = vec_norm((t_vector3){x, y, -1});
 			color(rt, ray, i);
 		}
 	}
