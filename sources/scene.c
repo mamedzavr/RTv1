@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:53:48 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 15:23:53 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 15:56:12 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ void		init_scene_1(t_rt *rt)
 		memory_error();
 	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
 		memory_error();
-	rt->cam.pos = vec_new(0, 0, 10);
-	rt->cam.rot = vec_new(0, 0, 1);
-
+	rt->cam.pos = vec_new(0, 0, 50);
+	rt->cam.rot = vec_new(-4.5, -6.5, 0);
 	rt->view.pos = vec_new(1, 1, 1);
 
 	rt->figure[0].type = "sphere";
@@ -31,7 +30,7 @@ void		init_scene_1(t_rt *rt)
 	rt->figure[0].color = set_color(160, 0, 0);
 	rt->figure[0].spec = 50;
 	rt->light[0].type = "ambient";
-	rt->light[0].intense = 0.0;
+	rt->light[0].intense = 0.1;
 	rt->light[1].type = "point";
 	rt->light[1].intense = 0.5;
 	rt->light[1].pos = (t_vector3){2, 0.5, 5};

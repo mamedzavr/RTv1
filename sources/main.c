@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:59:34 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 15:33:23 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 15:58:51 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,11 @@ int 		main(int ac, char **av)
 		{
 			if (rt.run == 0)
 			{
+				rt.cam.dir = vec_new(0, 0, -1);
+				rt.cam.dir = vec_rot_xyz(rt.cam.dir, rt.cam.rot);
+				rt.cam.updir = vec_new(0, -1, 0);
+				rt.cam.updir = vec_rot_xyz(rt.cam.updir, rt.cam.rot);
+				rt.cam.ldir = vec_norm(vec_cross(rt.cam.dir, rt.cam.updir));
 				update_screen(&rt);
 				rt.run = 1;
 			}

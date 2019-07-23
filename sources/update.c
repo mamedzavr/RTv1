@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 19:04:52 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/23 15:24:07 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 15:57:58 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,18 @@ void			update_screen(t_rt *rt)
 		{
 			// x = ((2 * (i[0] + 0.5) / WINW - 1) * tan(FOV / 2.) * WINW / WINH) + rt->cam.rot.x;
 			// y = -(2 * (i[1] + 0.5) / WINH - 1) * tan(FOV / 2.) + rt->cam.rot.y;
-			rt->cam.dir = vec_new(0, 0, -1);
-			rt->cam.dir = vec_rot_xyz(rt->cam.dir, rt->cam.rot);
-			rt->cam.updir = vec_new(0, -1, 0);
-			rt->cam.updir = vec_rot_xyz(rt->cam.updir, rt->cam.rot);
-			rt->cam.ldir = vec_norm(vec_cross(rt->cam.dir, rt->cam.updir));
+
+
+			// rt->cam.dir = vec_new(0, 0, -1);
+			// rt->cam.dir = vec_rot_xyz(rt->cam.dir, rt->cam.rot);
+			// rt->cam.updir = vec_new(0, -1, 0);
+			// rt->cam.updir = vec_rot_xyz(rt->cam.updir, rt->cam.rot);
+			// rt->cam.ldir = vec_norm(vec_cross(rt->cam.dir, rt->cam.updir));
 			ray.dir = vec_sub(ppc, vec_scale(rt->cam.ldir, (i[0] - WINH)));
 			ray.dir = vec_add(ray.dir, vec_scale(rt->cam.updir, (i[1] - WINH)));
 			ray.dir = vec_norm(vec_sub(ray.dir, ray.pos));
+
+
 			// canvas_to_viewport(rt, x, y);
 			// rt->cam.dir = vec_norm((t_vector3){x, y, -1});
 			// ray.dir =  rt->cam.dir;
