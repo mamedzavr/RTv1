@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:59:34 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 12:52:27 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 13:41:21 by fshanaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ void		key(t_rt *rt)
 	if (key[SDL_SCANCODE_S] && rt->run-- > 0)
 		rt->cam.pos.z -= 0.1;
 	if (key[SDL_SCANCODE_KP_8] && rt->run-- > 0)
-		rt->cam.dir.y += 0.1;
+		rt->cam.rot.y += 0.1;
 	if (key[SDL_SCANCODE_KP_5] && rt->run-- > 0)
-		rt->cam.dir.y -= 0.1;
+		rt->cam.rot.y -= 0.1;
 	if (key[SDL_SCANCODE_KP_4] && rt->run-- > 0)
-		rt->cam.dir.x -= 0.1;
+		rt->cam.rot.x -= 0.1;
 	if (key[SDL_SCANCODE_KP_6] && rt->run-- > 0)
-		rt->cam.dir.x += 0.1;
+		rt->cam.rot.x += 0.1;
 	if (key[SDL_SCANCODE_E] && rt->run-- > 0)
-		rt->cam.dir.z += 0.1;
+		rt->cam.rot.z += 0.1;
 	if (key[SDL_SCANCODE_D] && rt->run-- > 0)
-		rt->cam.dir.z -= 0.1;
+		rt->cam.rot.z -= 0.1;
 }
 
 void		init_sdl(t_rt *rt)
@@ -147,6 +147,7 @@ void		parse_number(t_rt *rt, char c)
 {
 	if (!(rt->color = (unsigned int *)malloc(sizeof(unsigned int) * WINH * WINW)))
 		memory_error();
+	rt->cam.rot = (t_vector3){0, 0, 0};
 	(c == '1') ? init_scene_1(rt) : 0;
 	(c == '2') ? init_scene_2(rt) : 0;
 	(c == '3') ? init_scene_3(rt) : 0;

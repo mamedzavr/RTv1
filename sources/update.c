@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 19:04:52 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/23 13:16:37 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 13:41:52 by fshanaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
-
-void			canvas_to_viewport(t_rt *rt, int x, int y)
-{
-	rt->cam.dir.x = x * rt->view.pos.x / WINW;
-	rt->cam.dir.y = y * rt->view.pos.y / WINH;
-	rt->cam.dir.z = rt->cam.pos.z;
-}
 
 static void		sdl_run(t_rt *rt)
 {
@@ -56,12 +49,10 @@ void			update_screen(t_rt *rt)
 		i[0] = -1;
 		while (++i[0] < WINW)
 		{
-			x = (2 * (i[0] + 0.5) / WINW - 1) * tan(FOV / 2.0) * WINW / WINH;
-			y = -(2 * (i[1] + 0.5) / WINH - 1) * tan(FOV / 2.0);
+			x = ((2 * (i[0] + 0.5) / WINW - 1) * tan(FOV / 2.) * WINW / WINH) + rt->cam.rot.x;
+			y = -(2 * (i[1] + 0.5) / WINH - 1) * tan(FOV / 2.) + rt->cam.rot.y;
 			rt->cam.dir = vec_norm((t_vector3){x, y, -1});
-			// canvas_to_viewport(rt, i[0], i[1]);
 			ray.dir =  rt->cam.dir;
-			// ray.dir = vec_norm((t_vector3){x, y, -1});
 			color(rt, ray, i);
 		}
 	}

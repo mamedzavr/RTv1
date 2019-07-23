@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rt.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:58:28 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 13:04:16 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 13:42:05 by fshanaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ typedef	struct		s_cam
 {
 	t_vector3		pos;
 	t_vector3		dir;
-	t_vector3		updir;
-	t_vector3		lowdir;
 	t_vector3		rot;
 }					t_cam;
 
@@ -119,7 +117,6 @@ void				init(t_rt *rt);
 void				init_sdl(t_rt *rt);
 void				key(t_rt *rt);
 void				update_screen(t_rt *rt);
-void				canvas_to_viewport(t_rt *rt, int x, int y);
 void				memory_error(void);
 
 
