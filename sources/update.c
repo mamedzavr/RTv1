@@ -6,18 +6,11 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 19:04:52 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/23 15:57:58 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 16:24:50 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/rt.h"
-
-void			canvas_to_viewport(t_rt *rt, int x, int y)
-{
-	rt->cam.rot.x = x * rt->view.pos.x / WINW;
-	rt->cam.rot.y = y * rt->view.pos.y / WINH;
-	rt->cam.rot.z = rt->cam.pos.z;
-}
 
 static void		sdl_run(t_rt *rt)
 {

@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:53:48 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 15:56:12 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 16:20:48 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void		init_scene_1(t_rt *rt)
 		memory_error();
 	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
 		memory_error();
-	rt->cam.pos = vec_new(0, 0, 50);
-	rt->cam.rot = vec_new(-4.5, -6.5, 0);
-	rt->view.pos = vec_new(1, 1, 1);
+
+	rt->cam.pos = vec_new(-8.7, -1.3, 36.1);
+	rt->cam.rot = vec_new(-3.9, -20.9, 0);
 
 	rt->figure[0].type = "sphere";
 	rt->figure[0].pos = vec_new(0, 0, 0);
@@ -30,7 +30,7 @@ void		init_scene_1(t_rt *rt)
 	rt->figure[0].color = set_color(160, 0, 0);
 	rt->figure[0].spec = 50;
 	rt->light[0].type = "ambient";
-	rt->light[0].intense = 0.1;
+	rt->light[0].intense = 0.0;
 	rt->light[1].type = "point";
 	rt->light[1].intense = 0.5;
 	rt->light[1].pos = (t_vector3){2, 0.5, 5};
@@ -44,9 +44,9 @@ void		init_scene_2(t_rt *rt)
 		memory_error();
 	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
 		memory_error();
-	rt->cam.pos = vec_new(0, 0, 10);
-	rt->cam.rot = vec_new(0, 0, 1);
-	rt->view.pos = vec_new(1, 1, 1);
+	rt->cam.pos = vec_new(-13.9, -7.6, 28.6);
+	rt->cam.rot = vec_new(0.0, -32.8, 0);
+
 	rt->figure[0].type = "cylinder";
 	rt->figure[0].pos = vec_new(0, 1, 0);
 	rt->figure[0].dir =  vec_new(0, -1, 0);
@@ -69,11 +69,11 @@ void		init_scene_3(t_rt *rt)
 		memory_error();
 	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
 		memory_error();
-	rt->cam.pos = vec_new(0, 0, 5);
-	rt->cam.rot = vec_new(0, 0, 1);
-	rt->view.pos = vec_new(1, 1, 1);
+	rt->cam.pos = vec_new(0.6, -0.6, 5.5);
+	rt->cam.rot = vec_new(-6.0, 0.4, 0);
+
 	rt->figure[0].type = "cone";
-	rt->figure[0].pos = vec_new(0, -0.2, 0);
+	rt->figure[0].pos = vec_new(0, -0.4, 0);
 	rt->figure[0].dir =  vec_new(0, -1, 0);
 	rt->figure[0].angle = 0.5;
 	rt->figure[0].color = set_color(15, 100, 0);
@@ -83,13 +83,13 @@ void		init_scene_3(t_rt *rt)
 	rt->figure[1].type = "plane";
 	rt->figure[1].pos = vec_new(0, -1, 0);
 	rt->figure[1].dir = vec_new(0, 1, 0);
-	rt->figure[1].color = set_color(10, 15, 110);
-	rt->figure[1].spec = 50;
+	rt->figure[1].color = set_color(10, 100, 200);
+	rt->figure[1].spec = 25;
 	rt->figure[1].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[1].dir);
 	rt->light[0].type = "ambient";
 	rt->light[0].intense = 0.0;
 	rt->light[1].type = "point";
-	rt->light[1].intense = 0.5;
+	rt->light[1].intense = 0.7;
 	rt->light[1].pos = (t_vector3){-5, 1.5, 5};
 }
 
@@ -101,9 +101,9 @@ void		init_scene_4(t_rt *rt)
 		memory_error();
 	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
 		memory_error();
-	rt->cam.pos = vec_new(0, 0, 5);
-	rt->cam.rot = vec_new(0, 0, 1);
-	rt->view.pos = vec_new(1, 1, 1);
+	rt->cam.pos = vec_new(1.0, 0.0, 20.7);
+	rt->cam.rot = vec_new(-5.4, -1.4, 0);
+
 	rt->figure[0].type = "cone";
 	rt->figure[0].pos = vec_new(-0.4, 0.45, 0);
 	rt->figure[0].dir =  vec_new(0, -1, 50);
@@ -153,7 +153,7 @@ void		init_scene_5(t_rt *rt)
 		memory_error();
 	rt->cam.pos = vec_new(3.8, 3.3, 5.0);
 	rt->cam.rot = vec_new(-0.8, -0.6, 1);
-	rt->view.pos = vec_new(1, 1, 1);
+
 	rt->figure[0].type = "cone";
 	rt->figure[0].pos = vec_new(-0.4, 0.45, 0);
 	rt->figure[0].dir =  vec_new(0, -1, 50);
@@ -205,7 +205,7 @@ void		init_scene_6(t_rt *rt)
 	// rt->cam.rot = vec_new(-0.8, -0.6, 1);
 	rt->cam.pos = vec_new(0, 0, 5);
 	rt->cam.rot = vec_new(0, 0, 0);
-	rt->view.pos = vec_new(1, 1, 1);
+
 
 
 

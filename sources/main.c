@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:59:34 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 15:58:51 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/23 16:08:25 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,32 @@ void		key(t_rt *rt)
 	rt->sdl.event.key.keysym.scancode == SDL_SCANCODE_ESCAPE ?
 		rt->boolean = 1 : 0;
 	if (key[SDL_SCANCODE_UP] && rt->run-- > 0)
-		rt->cam.pos.y += 0.25;
+		rt->cam.pos.y += 0.1;
 	if (key[SDL_SCANCODE_DOWN] && rt->run-- > 0)
-		rt->cam.pos.y -= 0.25;
+		rt->cam.pos.y -= 0.1;
 	if (key[SDL_SCANCODE_LEFT] && rt->run-- > 0)
-		rt->cam.pos.x -= 0.25;
+		rt->cam.pos.x -= 0.1;
 	if (key[SDL_SCANCODE_RIGHT] && rt->run-- > 0)
-		rt->cam.pos.x += 0.25;
+		rt->cam.pos.x += 0.1;
 	if (key[SDL_SCANCODE_W] && rt->run-- > 0)
-		rt->cam.pos.z -= 0.25;
+		rt->cam.pos.z -= 0.1;
 	if (key[SDL_SCANCODE_S] && rt->run-- > 0)
-		rt->cam.pos.z += 0.25;
+		rt->cam.pos.z += 0.1;
 
 
 	if (key[SDL_SCANCODE_KP_4] && rt->run-- > 0)
-		rt->cam.rot.y += 0.5;
+		rt->cam.rot.y += 0.2;
 	if (key[SDL_SCANCODE_KP_6] && rt->run-- > 0)
-		rt->cam.rot.y -= 0.5;
+		rt->cam.rot.y -= 0.2;
 	if (key[SDL_SCANCODE_KP_5] && rt->run-- > 0)
-		rt->cam.rot.x -= 0.5;
+		rt->cam.rot.x -= 0.2;
 	if (key[SDL_SCANCODE_KP_8] && rt->run-- > 0)
-		rt->cam.rot.x += 0.5;
-	if (key[SDL_SCANCODE_E] && rt->run-- > 0)
-		rt->cam.rot.z -= 0.5;
-	if (key[SDL_SCANCODE_D] && rt->run-- > 0)
-		rt->cam.rot.z += 0.5;
-	printf("\ncam.rot.x=%f\ncam.rot.y=%f\ncam.pos.x=%f\ncam.pos.y=%f\ncam.pos.z=%f|\n", rt->cam.rot.x, rt->cam.rot.y, rt->cam.pos.x, rt->cam.pos.y, rt->cam.pos.z);
+		rt->cam.rot.x += 0.2;
+	// if (key[SDL_SCANCODE_E] && rt->run-- > 0)
+	// 	rt->cam.rot.z -= 0.2;
+	// if (key[SDL_SCANCODE_D] && rt->run-- > 0)
+	// 	rt->cam.rot.z += 0.2;
+	printf("\ncam.pos.x=%f\ncam.pos.y=%f\ncam.pos.z=%f\ncam.rot.x=%f\ncam.rot.y=%f|\n", rt->cam.pos.x, rt->cam.pos.y, rt->cam.pos.z, rt->cam.rot.x, rt->cam.rot.y);
 }
 
 void		init_sdl(t_rt *rt)
@@ -101,7 +101,7 @@ void		init_sdl(t_rt *rt)
 // 	// rt->figure[3].type = "cylinder";
 // 	rt->figure[3].pos = vec_new(0, 1, 0);
 // 	rt->figure[3].dir =  vec_new(0, -1, 0);
-// 	rt->figure[3].angle = 0.25;
+// 	rt->figure[3].angle = 0.1;
 // 	rt->figure[3].color = set_color(100, 50, 150);
 // 	rt->figure[3].spec = 50;
 // 	rt->figure[3].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[3].dir);
@@ -110,7 +110,7 @@ void		init_sdl(t_rt *rt)
 // 	rt->figure[5].type = "cylinder";
 // 	rt->figure[5].pos = vec_new(0, 1, 0);
 // 	rt->figure[5].dir =  vec_new(0, -1, 30);
-// 	rt->figure[5].angle = 0.25;
+// 	rt->figure[5].angle = 0.1;
 // 	rt->figure[5].color = set_color(50, 50, 50);
 // 	rt->figure[5].spec = 50;
 // 	rt->figure[5].v = vec_rot_xyz(vec_new(0, 1, 0), rt->figure[5].dir);
