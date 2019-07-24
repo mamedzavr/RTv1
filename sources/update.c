@@ -6,11 +6,11 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 19:04:52 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/24 11:15:59 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:46:39 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/rt.h"
+#include "../includes/rtv1.h"
 
 static void		sdl_run(t_rt *rt)
 {

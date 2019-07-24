@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 18:18:44 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/22 18:18:48 by fshanaha         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:46:39 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/rt.h"
+#include "../includes/rtv1.h"
 
 void	memory_error(void)
 {

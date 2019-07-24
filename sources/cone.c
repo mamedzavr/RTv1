@@ -6,11 +6,11 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 18:18:29 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/24 11:05:44 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:46:39 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/rt.h"
+#include "../includes/rtv1.h"
 
 t_vector3	find_n_cone(t_ray r, t_vector3 pt, double t, t_figure cone)
 {

@@ -6,11 +6,11 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 18:18:14 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/24 10:50:55 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:46:39 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/rt.h"
+#include "../includes/rtv1.h"
 
 int			compute_shadow(t_rt *rt, t_ray ray, t_vector3 light_pos)
 {

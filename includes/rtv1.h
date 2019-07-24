@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt.h                                               :+:      :+:    :+:   */
+/*   rtv1.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:58:28 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/24 11:30:50 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:46:07 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_RT_H
-# define FT_RT_H
+# ifndef RTV1_H
+# define RTV1_H
 
 # include "../libft/libft.h"
 # include <stdbool.h>
@@ -155,6 +155,7 @@ void				init_scene_3_1(t_rt *rt);
 void				init_scene_4(t_rt *rt);
 void				init_scene_4_1(t_rt *rt);
 void				init_scene_5(t_rt *rt);
+void				init_scene_5_1(t_rt *rt);
 void				init_scene_6(t_rt *rt);
 void				init_scene_6_1(t_rt *rt);
 void				init_scene_7(t_rt *rt);

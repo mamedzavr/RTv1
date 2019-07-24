@@ -6,11 +6,11 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:59:34 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/24 11:14:22 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:46:39 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/rt.h"
+#include "../includes/rtv1.h"
 
 void		key(t_rt *rt)
 {

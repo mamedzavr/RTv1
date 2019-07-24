@@ -24,7 +24,7 @@ DIR_O = objects
 
 HEADER = includes
 
-_DEPS = rt.h
+_DEPS = rtv1.h
 
 DEPS = $(patsubst %,$(HEADER)/%,$(_DEPS))
 
@@ -42,10 +42,10 @@ SOURCES = main.c \
 			plane.c \
 			light.c \
 			figure.c \
-			scene.c \
-			scene2.c \
-			scene_7.c \
-			scene_7_2.c \
+			scene_0.c \
+			scene_1.c \
+			scene_2.c \
+			scene_3.c \
 
 SRCS = $(addprefix $(DIR_S)/,$(SOURCES))
 

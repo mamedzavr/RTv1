@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 19:04:20 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/22 19:04:22 by fshanaha         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:46:39 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/rt.h"
+#include "../includes/rtv1.h"
 
 t_vector3		find_n_sphere(t_ray r, double d, t_vector3 cent)
 {
