@@ -19,10 +19,10 @@
 # include <OpenCL/opencl.h>
 # include "../libvec/libvec.h"
 
-// # define WINW 200
-// # define WINH 200
-# define WINW 1000
-# define WINH 1000
+# define WINW 200
+# define WINH 200
+// # define WINW 1000
+// # define WINH 1000
 # define WINW_H WINW / 2
 # define WINH_H WINH / 2
 # define FOV (65 * (M_PI / 180))
@@ -30,6 +30,13 @@
 # define ABS(x) (x) > 0 ? (x) : -(x)
 # define DROUND(d) ABS(d) < 0.00001 ? 0 : (d)
 # define PPD 935
+
+#define SPHERE 0
+#define CONE 1
+#define CYLINDER 2
+#define PLANE 3
+#define AMBIENT 0
+#define POINT 1
 
 typedef struct		s_sdl
 {
@@ -42,7 +49,7 @@ typedef struct		s_sdl
 
 typedef struct		s_light
 {
-	char			*type;
+	int				type;
 	double			intense;
 	t_vector3		pos;
 	t_vector3		dir;
@@ -73,7 +80,7 @@ typedef	struct		s_cam
 
 typedef	struct		s_figure
 {
-	char			*type;
+	int				type;
 	t_vector3		pos;
 	t_vector3		dir;
 	t_vector3		v;

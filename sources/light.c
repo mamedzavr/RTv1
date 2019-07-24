@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 18:18:14 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/23 12:05:53 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 10:50:55 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ double		compute_light(t_rt *rt, t_vector3 p, t_vector3 n)
 	i = -1;
 	while (++i < rt->lightcount)
 	{
-		if (ft_strcmp(rt->light[i].type, "ambient") == 0)
+		if (rt->light[i].type == AMBIENT)
 			intense += rt->light[i].intense;
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 18:51:45 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/23 15:46:25 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 10:51:46 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ void		find_closest_intersection(t_rt *rt, t_ray r)
 	i = -1;
 	while (++i < rt->objcount)
 	{
-		if (ft_strcmp(rt->figure[i].type, "sphere") == 0)
+		if (rt->figure[i].type == SPHERE)
 			rt->t[i] = calc_sphere(rt, r, i);
-		else if (ft_strcmp(rt->figure[i].type, "cone") == 0)
+		else if (rt->figure[i].type == CONE)
 			rt->t[i] = calc_cone(rt, r, i);
-		else if (ft_strcmp(rt->figure[i].type, "cylinder") == 0)
+		else if (rt->figure[i].type == CYLINDER)
 			rt->t[i] = calc_cylinder(rt, r, i);
-		else if (ft_strcmp(rt->figure[i].type, "plane") == 0)
+		else if (rt->figure[i].type == PLANE)
 			rt->t[i] = calc_plane(rt, r, i);
 	}
 }
