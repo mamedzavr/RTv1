@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:58:21 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/23 11:58:26 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:09:32 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 # include <math.h>
 
-# define DTR(k)	((double)k * (M_PI / 180))
+# define DTR(k) ((double)k * (M_PI / 180))
 
-typedef struct	s_vector3
+typedef struct		s_vector3
 {
-	double		x;
-	double		y;
-	double		z;
-}				t_vector3;
+	double			x;
+	double			y;
+	double			z;
+}					t_vector3;
 
 t_vector3			vec_new(double x, double y, double z);
 t_vector3			vec_scale(t_vector3 v, double nb);

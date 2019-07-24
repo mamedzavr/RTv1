@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cone.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 18:18:29 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/23 13:35:58 by fshanaha         ###   ########.fr       */
+/*   Updated: 2019/07/24 11:05:44 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,20 @@ t_vector3	find_n_cone(t_ray r, t_vector3 pt, double t, t_figure cone)
 	return (n);
 }
 
-double		find_t_cone(t_ray *r, t_figure cone)
+double		find_t_cone(t_rt *rt, t_ray *r, t_figure cone)
 {
-	t_vector3	x;
 	double		a;
 	double		b;
 	double		c;
 	double		d;
 
-	x = vec_sub(r->pos, cone.pos);
+	rt->x = vec_sub(r->pos, cone.pos);
 	a = vec_dot(r->dir, cone.v);
 	a = vec_dot(r->dir, r->dir) - (1 + cone.angle * cone.angle) * a * a;
-	b = 2.0 * (vec_dot(r->dir, x) - (1 + cone.angle * cone.angle)
-		* vec_dot(r->dir, cone.v) * vec_dot(x, cone.v));
-	c = vec_dot(x, cone.v);
-	c = vec_dot(x, x) - (1 + cone.angle * cone.angle) * c * c;
+	b = 2.0 * (vec_dot(r->dir, rt->x) - (1 + cone.angle * cone.angle)
+		* vec_dot(r->dir, cone.v) * vec_dot(rt->x, cone.v));
+	c = vec_dot(rt->x, cone.v);
+	c = vec_dot(rt->x, rt->x) - (1 + cone.angle * cone.angle) * c * c;
 	d = b * b - 4 * a * c;
 	d = DROUND(d);
 	return (d = d < 0.0003 ? -1 : choose_closest_t(a, b, d));
@@ -52,6 +51,6 @@ double		calc_cone(t_rt *rt, t_ray r, int id)
 	t_figure	cone;
 
 	cone = rt->figure[id];
-	t = find_t_cone(&r, cone);
+	t = find_t_cone(rt, &r, cone);
 	return (t);
 }

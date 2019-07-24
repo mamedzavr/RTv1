@@ -43,6 +43,7 @@ SOURCES = main.c \
 			light.c \
 			figure.c \
 			scene.c \
+			scene2.c \
 			scene_7.c \
 			scene_7_2.c \
 
