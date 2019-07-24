@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 18:06:22 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/24 11:46:39 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 12:01:20 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ static void		plane_7(t_rt *rt)
 void			init_scene_7(t_rt *rt)
 {
 	rt->objcount = 16;
-	rt->lightcount = 3;
+	rt->lightcount = 5;
 	if (!(rt->figure = (t_figure *)malloc(sizeof(t_figure) * rt->objcount)))
 		memory_error();
 	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
@@ -123,10 +123,13 @@ void			init_scene_7(t_rt *rt)
 	rt->light[0].intense = 0.2;
 	rt->light[1].type = POINT;
 	rt->light[1].intense = 0.6;
-	rt->light[1].pos = (t_vector3){10, 0, 18};
+	rt->light[1].pos = (t_vector3){10, 1.9, 20};
 	rt->light[2].type = POINT;
 	rt->light[2].intense = 0.6;
-	rt->light[2].pos = (t_vector3){-10, 0, 18};
+	rt->light[2].pos = (t_vector3){-10, 1.9, 20};
+	rt->light[2].type = POINT;
+	rt->light[2].intense = 0.6;
+	rt->light[2].pos = (t_vector3){0, 1.9, 10};
 	plane_7(rt);
 	sphere_7(rt);
 	sphere_7_2(rt);
