@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fshanaha <fshanaha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/24 11:16:43 by wqarro-v          #+#    #+#             */
-/*   Updated: 2019/07/24 11:46:39 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 12:14:45 by fshanaha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ void		init_scene_6(t_rt *rt)
 		memory_error();
 	if (!(rt->light = (t_light *)malloc(sizeof(t_light) * rt->lightcount)))
 		memory_error();
-	rt->cam.pos = vec_new(0, 0, 5);
-	rt->cam.rot = vec_new(0, 0, 0);
+	rt->cam.pos = vec_new(6, 2, 5);
+	rt->cam.rot = vec_new(-22, 37, 0);
 	rt->figure[0].type = CONE;
 	rt->figure[0].pos = vec_new(-0.4, 0.45, 0);
 	rt->figure[0].dir = vec_new(0, -1, 50);
