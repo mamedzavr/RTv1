@@ -6,7 +6,7 @@
 /*   By: wqarro-v <wqarro-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 19:04:52 by fshanaha          #+#    #+#             */
-/*   Updated: 2019/07/24 11:46:39 by wqarro-v         ###   ########.fr       */
+/*   Updated: 2019/07/24 12:33:11 by wqarro-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void			update_screen(t_rt *rt)
 	t_vector3	ppc;
 
 	i[1] = -1;
-	if (!(rt->t = (double*)malloc(sizeof(double) * rt->objcount)))
-		memory_error();
 	ppc = vec_add(rt->cam.pos, vec_scale(rt->cam.dir, PPD));
 	ray.pos = rt->cam.pos;
 	while (++i[1] < WINH)
